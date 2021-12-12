@@ -1,0 +1,9 @@
+main: chatmention.javahampus.ChatMention
+name: ChatMention
+author: JavaHampus
+version: 1.0
+description: Allows players to mention other players in the global chat.
+
+commands:
+  togglemention:
+    usage: /togglemention
