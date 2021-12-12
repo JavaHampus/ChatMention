@@ -29,12 +29,11 @@ public class ToggleMention implements CommandExecutor {
         if(plugin.getDataStorage().isPlayerMentionable(p.getUniqueId())) {
             plugin.getDataStorage().setPlayerMentionable(p.getUniqueId(), false);
 
-            p.sendMessage("Message --");
         } else {
             plugin.getDataStorage().setPlayerMentionable(p.getUniqueId(), true);
 
-            p.sendMessage("Message --");
         }
+        p.sendMessage("Message --");
 
         return true;
     }
