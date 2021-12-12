@@ -1,6 +1,7 @@
 package chatmention.javahampus.Commands;
 
 import chatmention.javahampus.ChatMention;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,18 +23,18 @@ public class ToggleMention implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!plugin.getDataStorage().containsPlayerKey(p.getUniqueId())) {
-            p.sendMessage("Message --");
+            p.sendMessage();
             return true;
         }
 
         if(plugin.getDataStorage().isPlayerMentionable(p.getUniqueId())) {
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', (String) plugin.getConfig().get("prefix") + plugin.getConfig().get("disableMessage")));
             plugin.getDataStorage().setPlayerMentionable(p.getUniqueId(), false);
 
         } else {
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', (String) plugin.getConfig().get("prefix") + plugin.getConfig().get("enableMessage")));
             plugin.getDataStorage().setPlayerMentionable(p.getUniqueId(), true);
-
         }
-        p.sendMessage("Message --");
 
         return true;
     }
