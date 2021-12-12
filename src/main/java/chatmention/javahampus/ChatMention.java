@@ -1,6 +1,7 @@
 package chatmention.javahampus;
 
 import chatmention.javahampus.Commands.ToggleMention;
+import chatmention.javahampus.Events.MessageCreated;
 import chatmention.javahampus.Events.PlayerConnection;
 import chatmention.javahampus.Utils.DataStorage;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,7 @@ public class ChatMention extends JavaPlugin {
     }
 
     private void registerEvents() {
+        getServer().getPluginManager().registerEvents(new MessageCreated(this), this);
         getServer().getPluginManager().registerEvents(new PlayerConnection(this), this);
     }
 
