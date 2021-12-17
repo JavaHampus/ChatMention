@@ -25,6 +25,8 @@
 package chatmention.javahampus.Events;
 
 import chatmention.javahampus.ChatMention;
+import chatmention.javahampus.Utils.Constants;
+import chatmention.javahampus.Utils.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -50,8 +52,9 @@ public class MessageCreated implements Listener {
             if(Bukkit.getPlayer(key) != null) {
                 Player mentioned = Bukkit.getPlayer(key);
 
-                if(e.getMessage().contains("@" + mentioned.getName()) && plugin.getDataStorage().isPlayerMentionable(key)) {
-                    mentioned.sendMessage();
+                if(e.getMessage().contains(Constants.MENTION + mentioned.getName()) && plugin.getDataStorage().isPlayerMentionable(key)) {
+                    mentioned.sendMessage(MessageUtils.prefixMessage("&cYou have been mentioned in the chat."));
+                    mentioned.sendTitle(MessageUtils.colorMessage("&cYou have been mentioned"), MessageUtils.colorMessage("&cby " + p.getName()), 20, 40, 20);
                     mentioned.playSound(mentioned.getLocation(), Sound.BLOCK_GLASS_BREAK, 100, 100);
                 }
             }
