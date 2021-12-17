@@ -34,7 +34,6 @@ public class ChatMention extends JavaPlugin {
 
     DataStorage dataStorage;
 
-
     @Override
     public void onEnable() {
         dataStorage = new DataStorage();

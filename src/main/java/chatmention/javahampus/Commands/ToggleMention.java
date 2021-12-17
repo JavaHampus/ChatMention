@@ -25,6 +25,7 @@
 package chatmention.javahampus.Commands;
 
 import chatmention.javahampus.ChatMention;
+import chatmention.javahampus.Utils.MessageUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -52,11 +53,10 @@ public class ToggleMention implements CommandExecutor {
         }
 
         if(plugin.getDataStorage().isPlayerMentionable(p.getUniqueId())) {
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', (String) plugin.getConfig().get("prefix") + plugin.getConfig().get("disableMessage")));
+            p.sendMessage(MessageUtils.prefixMessage("&cYou cannot be mentioned in the chat anymore."));
             plugin.getDataStorage().setPlayerMentionable(p.getUniqueId(), false);
-
         } else {
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', (String) plugin.getConfig().get("prefix") + plugin.getConfig().get("enableMessage")));
+            p.sendMessage(MessageUtils.prefixMessage("&aYou can now be mentioned in the chat."));
             plugin.getDataStorage().setPlayerMentionable(p.getUniqueId(), true);
         }
 
