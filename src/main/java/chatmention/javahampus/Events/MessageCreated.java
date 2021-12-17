@@ -56,6 +56,8 @@ public class MessageCreated implements Listener {
                     mentioned.sendMessage(MessageUtils.prefixMessage("&cYou have been mentioned in the chat."));
                     mentioned.sendTitle(MessageUtils.colorMessage("&cYou have been mentioned"), MessageUtils.colorMessage("&cby " + p.getName()), 20, 40, 20);
                     mentioned.playSound(mentioned.getLocation(), Sound.BLOCK_GLASS_BREAK, 100, 100);
+                } else if(e.getMessage().contains(Constants.MENTION + mentioned.getName()) && !(plugin.getDataStorage().isPlayerMentionable(key))) {
+                    p.sendMessage(MessageUtils.prefixMessage("&cCould not mention " + mentioned.getName()));
                 }
             }
         }
