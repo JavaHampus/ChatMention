@@ -42,7 +42,8 @@ public class ChatMention extends JavaPlugin {
         registerCommands();
         registerEvents();
 
-        getLogger().info("This server is using ChatMention developed by JavaHampus.");
+        getLogger().info("ChatMention has been enabled!");
+        getLogger().info("ChatMention is developed by JavaHampus!");
     }
 
     private void registerCommands() {
